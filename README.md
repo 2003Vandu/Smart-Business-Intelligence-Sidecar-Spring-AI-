@@ -29,14 +29,11 @@ This project follows a **Sidecar Pattern** where the AI logic is decoupled from 
 
 ## 🧩 Key Features
 * **🤖 Business Intelligence:** Natural language queries to get sales trends and stock predictions.
-* **💡 Cost-Efficiency:** Designed to switch between Gemini (API) and Ollama (Local) to manage operational costs.
-* **🛡️ POS Safety:** The AI service only performs `READ` operations on the transaction tables, ensuring zero risk to the main billing flow.
 
 ---
 
 ## 🔮 Future Roadmap (Under Development)
 * **Local LLM Migration:** Fully migrating to **Ollama** for 100% cost-free local processing.
-* **Advanced MAC_SHA256:** Implementing secure verification for cross-project data exchange.
 * **Transactional Integrity:** Adding **ACID-compliant Transaction Management** for multi-project data sync.
 
 ---
