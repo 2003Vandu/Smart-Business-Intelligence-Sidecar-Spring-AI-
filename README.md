@@ -56,4 +56,5 @@ This project follows a **Sidecar Pattern** where the AI logic is decoupled from 
 
 ## 🧾 Author
 * **👤 Vandesh Ghodke** | Java Backend & AI Developer
+* 📧 **vandesghodke2003@gmail.com**
 * **🔗** [GitHub - 2003Vandu](https://github.com/2003Vandu)
