@@ -9,16 +9,23 @@ public class GeminiAiService {
     private final ChatClient chatClient;
 
     public GeminiAiService(ChatClient.Builder builder) {
-        // We build the client with a default "System" prompt
         this.chatClient = builder
-                .defaultSystem("You are a helpful assistant that answers in exactly 2 sentences.")
+                .defaultSystem("""
+                You are a helpful POS system assistant.
+                Answer clearly and concisely in 2-3 sentences.
+                """)
                 .build();
     }
 
     public String generateAnswer(String userPrompt) {
-        return chatClient.prompt()
-                .user(userPrompt)
-                .call()
-                .content();
+        try {
+            return chatClient.prompt()
+                    .user(userPrompt)
+                    .call()
+                    .content();
+        } catch (Exception e) {
+            return "AI service unavailable. Please try again.";
+        }
     }
 }
+
