@@ -12,15 +12,22 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-@RequiredArgsConstructor
 @RequestMapping("/api/ai")
-public class AiAdvisorController
-{
+@RequiredArgsConstructor
+public class AiAdvisorController {
+
     private final AiConsultantService aiService;
 
     @GetMapping("/analyze")
-    public ResponseEntity<Map<String, String>> getInsight(@RequestParam String query) {
-        String aiResponse = aiService.generateBusinessInsight(query);
-        return ResponseEntity.ok(Map.of("answer", aiResponse));
+    public ResponseEntity<Map<String, String>> getInsight(
+            @RequestParam String query) {
+
+        if (query == null || query.isBlank()) {
+            return ResponseEntity.badRequest()
+                    .body(Map.of("error", "Query cannot be empty"));
+        }
+
+        String response = aiService.generateBusinessInsight(query);
+        return ResponseEntity.ok(Map.of("answer", response));
     }
 }
